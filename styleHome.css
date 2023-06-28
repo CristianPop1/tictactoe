@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+div.container
+{
+    width:fit-content;
+    height:fit-content;
+    background-color: rgb(255, 218, 55);
+    padding:50px;
+    border-radius: 15px;
+}
+div input
+{
+    height:50px;
+    width:50px;
+    text-align: center;
+    font-size: 25pt;
+}
+body
+{
+    align-items: center;
+}
+.next
+{
+    font-size:30pt;
+    border-color: black;
+    border-width: 2px;
+    border-radius: 10px;
+}
+.cont
+{
+    background-color: rgb(101, 250, 255);
+    padding: 25px;
+    width:fit-content;
+    border-radius: 15px;
+}
+button
+{
+    background-color: limegreen;
+    padding:8px;
+    border-radius:3px;
+    transition: all 1s;
+}
+button:hover
+{
+    border-style: inset;
+    background-color: rgb(0, 255, 0);
+    transition:all 800ms;
+}
+button:focus
+{
+    background-color: rgb(196, 247, 196);
+}
+.win
+{
+    background-color:green;
+}
+.stop
+{
+    background-color: yellow;
+}
+div.visible
+{
+    visibility: visible;
+}
+.winr
+{
+    width: 40%;
+    font-size: large;
+    transition:all 800ms;
+}
+.winrr
+{
+    font-size: 25pt;
+}
+/* CENTER EVRYTHING down */
+body 
+{
+    background-color: rgb(255, 255, 255);
+    margin:auto;
+    max-width: 500px;
+    text-size-adjust: auto;
+    font-family: 'Poppins', sans-serif;
+}
+h1
+{
+    font-family: 'Arimo', sans-serif;
+}
+.playAgain
+{
+    background-color: rgb(174, 255, 54);
+    padding: 20px;
+    max-width: 200px;
+    margin-bottom: 40px;
+    border-radius: 20px;
+    visibility: visible;
+}
+.helpText
+{
+    font-family: 'Finlandica', sans-serif;
+}
+.helpTitle
+{
+    font-family: 'Finlandica', sans-serif;
+}
+/* FLOATING PANEl */
+.panel
+{
+    float: right;
+    position: right;
+    background-color: red;
+    height: 10%;
+    max-height: 100px;
+    width: 40%;
+    max-width: 300px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 25px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 13pt;
+    color:white;
+}

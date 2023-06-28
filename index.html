@@ -1,0 +1,391 @@
+<html lang="ro">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <script src="wait.js"></script>
+        <script>
+        var r = 1
+        var rounds = 0
+        var a11,a12,a13,a21,a22,a23,a31,a32,a33;
+        a11 = 0;
+        a12 = 0;
+        a13 = 0;
+        a21 = 0;
+        a22 = 0;
+        a23 = 0;
+        a31 = 0;
+        a32 = 0;
+        a33 = 0;
+        var cont=true;
+        function checkScore(c)
+        {
+            rounds = rounds + 1
+            if(rounds == 9){
+                gameOver()
+            }
+            else
+            //change symbol
+            if(r==1 && cont){
+                m = 'x'
+            }    
+            else if(r!=1 && cont){
+                m = 'o'
+            }
+            if(c==11){
+                if(a11==0){
+                    document.getElementById("r1c1").value = m
+                    a11=1;
+                    cont=true;
+                }
+                else{
+                    alert("Aceasta pozitie este deja ocupata!");
+                    cont=false;
+                }
+                    
+            }
+            else
+            if(c==12){
+                //document.getElementById("r1c2").value = m
+                if(a12==0){
+                    document.getElementById("r1c2").value = m
+                    a12=1;
+                    cont=true;
+                }
+                else{
+                    alert("Aceasta pozitie este deja ocupata!");
+                }
+                    
+            }
+            if(c==13){
+                //document.getElementById("r1c3").value = m
+                if(a13==0){
+                    document.getElementById("r1c3").value = m
+                    a13=1;
+                    cont=true;
+                }
+                else
+                    alert("ocupat");
+            }
+            if(c==21){
+                //document.getElementById("r2c1").value = m
+                if(a21==0){
+                    document.getElementById("r2c1").value = m
+                    a21=1;
+                    cont=true;
+                }
+                else
+                    alert("Aceasta pozitie este deja ocupata!");
+            }
+            if(c==22){
+                //document.getElementById("r2c2").value = m
+                if(a22==0){
+                    document.getElementById("r2c2").value = m
+                    a22=1;
+                    cont=true;
+                }
+                else
+                    alert("Aceasta pozitie este deja ocupata!");
+            }
+            if(c==23){
+                //document.getElementById("r2c3").value = m
+                if(a23==0){
+                    document.getElementById("r2c3").value = m
+                    a23=1;
+                    cont=true;
+                }
+                else
+                    alert("Aceasta pozitie este deja ocupata!");
+            }
+            if(c==31){
+                //document.getElementById("r3c1").value = m
+                if(a31==0){
+                    document.getElementById("r3c1").value = m
+                    a31=1;
+                    cont=true;
+                }
+                else
+                    alert("Aceasta pozitie este deja ocupata!");
+            }
+            if(c==32){
+                //document.getElementById("r3c2").value = m
+                if(a32==0){
+                    document.getElementById("r3c2").value = m
+                    a32=1;
+                    cont=true;
+                }
+                else
+                    alert("Aceasta pozitie este deja ocupata!");
+            }
+            else
+            if(c==33){
+                //document.getElementById("r3c3").value = m
+                if(a33==0){
+                    document.getElementById("r3c3").value = m
+                    a33=1;
+                    cont=true;
+                }
+                else
+                    alert("Aceasta pozitie este deja ocupata!");
+            }
+
+            //check winner
+            if(r==1){
+                r = 2
+                document.getElementById("next").value = 'o'
+                let a = document.getElementById("r1c1").value
+                let b = document.getElementById("r1c2").value
+                let c = document.getElementById("r1c3").value
+                if(a=='x' && b=='x' && c=='x'){
+                    document.getElementById("r1c1").className = "win"
+                    document.getElementById("r1c2").className = "win"
+                    document.getElementById("r1c3").className = "win"
+                    win('x')
+                }
+                else{
+                    let a = document.getElementById("r2c1").value
+                    let b = document.getElementById("r2c2").value
+                    let c = document.getElementById("r2c3").value
+                    if(a=='x' && b=='x' && c=='x'){
+                        document.getElementById("r2c1").className = "win"
+                        document.getElementById("r2c2").className = "win"
+                        document.getElementById("r2c3").className = "win"
+                        win('x')
+                    }
+                    else{
+                        let a = document.getElementById("r3c1").value
+                        let b = document.getElementById("r3c2").value
+                        let c = document.getElementById("r3c3").value
+                        if(a=='x' && b=='x' && c=='x'){
+                            document.getElementById("r3c1").className = "win"
+                            document.getElementById("r3c2").className = "win"
+                            document.getElementById("r3c3").className = "win"
+                            win('x')
+                        }
+                        else{
+                            let a = document.getElementById("r1c1").value
+                            let b = document.getElementById("r2c1").value
+                            let c = document.getElementById("r3c1").value
+                            if(a=='x' && b=='x' && c=='x'){
+                                document.getElementById("r1c1").className = "win"
+                                document.getElementById("r2c1").className = "win"
+                                document.getElementById("r3c1").className = "win"
+                                win('x')
+                            }
+                            else{
+                                let a = document.getElementById("r1c2").value
+                                let b = document.getElementById("r2c2").value
+                                let c = document.getElementById("r3c2").value
+                                if(a=='x' && b=='x' && c=='x'){
+                                    document.getElementById("r1c2").className = "win"
+                                    document.getElementById("r2c2").className = "win"
+                                    document.getElementById("r3c2").className = "win"
+                                    win('x')
+                                }
+                                else{
+                                    let a = document.getElementById("r1c3").value
+                                    let b = document.getElementById("r2c3").value
+                                    let c = document.getElementById("r3c3").value
+                                    if(a=='x' && b=='x' && c=='x'){
+                                        document.getElementById("r1c3").className = "win"
+                                        document.getElementById("r2c3").className = "win"
+                                        document.getElementById("r3c3").className = "win"
+                                        win('x')
+                                    } 
+                                    else{
+                                        let a = document.getElementById("r1c1").value
+                                        let b = document.getElementById("r2c2").value
+                                        let c = document.getElementById("r3c3").value
+                                        if(a=='x' && b=='x' && c=='x'){
+                                            document.getElementById("r1c1").className = "win"
+                                            document.getElementById("r2c2").className = "win"
+                                            document.getElementById("r3c3").className = "win"
+                                            win('x')
+                                        }
+                                        else{
+                                            let a = document.getElementById("r1c3").value
+                                            let b = document.getElementById("r2c2").value
+                                            let c = document.getElementById("r3c1").value
+                                            if(a=='x' && b=='x' && c=='x'){
+                                                document.getElementById("r1c3").className = "win"
+                                                document.getElementById("r2c2").className = "win"
+                                                document.getElementById("r3c1").className = "win"
+                                                win('x')
+                                            } 
+                                        }
+                                    }
+                                }
+                            } 
+                        } 
+                    } 
+                }
+            }
+        
+            else{
+            r = 1
+            document.getElementById("next").value = 'x'
+                let a = document.getElementById("r1c1").value
+                let b = document.getElementById("r1c2").value
+                let c = document.getElementById("r1c3").value
+                if(a=='o' && b=='o' && c=='o'){
+                    document.getElementById("r1c1").className = "win"
+                    document.getElementById("r1c2").className = "win"
+                    document.getElementById("r1c3").className = "win"
+                    win('o')
+                }
+                else{
+                    let a = document.getElementById("r2c1").value
+                    let b = document.getElementById("r2c2").value
+                    let c = document.getElementById("r2c3").value
+                    if(a=='o' && b=='o' && c=='o'){
+                        document.getElementById("r2c1").className = "win"
+                        document.getElementById("r2c2").className = "win"
+                        document.getElementById("r2c3").className = "win"
+                        win('o')
+                    }
+                    else{
+                        let a = document.getElementById("r3c1").value
+                        let b = document.getElementById("r3c2").value
+                        let c = document.getElementById("r3c3").value
+                        if(a=='o' && b=='o' && c=='o'){
+                            document.getElementById("r3c1").className = "win"
+                            document.getElementById("r3c2").className = "win"
+                            document.getElementById("r3c3").className = "win"
+                            win('o')
+                        }
+                        else{
+                            let a = document.getElementById("r1c1").value
+                            let b = document.getElementById("r2c1").value
+                            let c = document.getElementById("r3c1").value
+                            if(a=='o' && b=='o' && c=='o'){
+                                document.getElementById("r1c1").className = "win"
+                                document.getElementById("r2c1").className = "win"
+                                document.getElementById("r3c1").className = "win"
+                                win('o')
+                            }
+                            else{
+                                let a = document.getElementById("r1c2").value
+                                let b = document.getElementById("r2c2").value
+                                let c = document.getElementById("r3c2").value
+                                if(a=='o' && b=='o' && c=='o'){
+                                    document.getElementById("r1c2").className = "win"
+                                    document.getElementById("r2c2").className = "win"
+                                    document.getElementById("r3c2").className = "win"
+                                    win('o')
+                                }
+                                else{
+                                    let a = document.getElementById("r1c3").value
+                                    let b = document.getElementById("r2c3").value
+                                    let c = document.getElementById("r3c3").value
+                                    if(a=='o' && b=='o' && c=='o'){
+                                        document.getElementById("r1c3").className = "win"
+                                        document.getElementById("r2c3").className = "win"
+                                        document.getElementById("r3c3").className = "win"
+                                        win('o')
+                                    } 
+                                    else{
+                                        let a = document.getElementById("r1c1").value
+                                        let b = document.getElementById("r2c2").value
+                                        let c = document.getElementById("r3c3").value
+                                        if(a=='o' && b=='o' && c=='o'){
+                                            document.getElementById("r1c1").className = "win"
+                                            document.getElementById("r2c2").className = "win"
+                                            document.getElementById("r3c3").className = "win"
+                                            win('o')
+                                        }
+                                        else{
+                                            let a = document.getElementById("r1c3").value
+                                            let b = document.getElementById("r2c2").value
+                                            let c = document.getElementById("r3c1").value
+                                            if(a=='o' && b=='o' && c=='o'){
+                                                document.getElementById("r1c3").className = "win"
+                                                document.getElementById("r2c2").className = "win"
+                                                document.getElementById("r3c1").className = "win"
+                                                win('o')
+                                            } 
+                                        }
+                                    }
+                                }
+                            } 
+                        } 
+                    } 
+                }
+            }
+        }
+        function win(pl)
+        {
+            if(pl=='!'){
+                document.getElementById("winnertxt").innerHTML = "Unfortunately there is no winner.";
+                if(confirm("Want to restart ?")){
+                    playAgain();
+                }
+            }
+            else {
+                document.getElementById("winnertxt").innerHTML = "Congratulations, the winner is "+pl
+            }
+            
+        }
+        function myHelp()
+        {
+            window.location.href = "help.html";
+        }
+        function gameOver() //game over
+        {   
+            document.getElementById("r1c1").className = "stop"
+            document.getElementById("r1c2").className = "stop"
+            document.getElementById("r1c3").className = "stop"
+            document.getElementById("r2c1").className = "stop"
+            document.getElementById("r2c2").className = "stop"
+            document.getElementById("r2c3").className = "stop"
+            document.getElementById("r3c1").className = "stop"
+            document.getElementById("r3c2").className = "stop"
+            document.getElementById("r3c3").className = "stop"
+            win('!');
+        }
+        function playAgain()
+        {
+            window.location.reload()
+        }
+    </script>
+    <link rel="stylesheet" href="styleHome.css">
+    <body>
+        <div class="panel">
+            <p id="winnertxt">Play to find the winner !</p>
+        </div>
+        <h1>Tic tac toe game</h1><br>
+        <div class="container">
+            <input class="st" type="text" value="-" id="r1c1" readonly onclick="checkScore(11)">
+            <input class="st" type="text" value="-" id="r1c2" readonly onclick="checkScore(12)">
+            <input class="st" type="text" value="-" id="r1c3" readonly onclick="checkScore(13)">
+            <br>
+            <input type="text" value="-" id="r2c1" readonly onclick="checkScore(21)">
+            <input type="text" value="-" id="r2c2" readonly onclick="checkScore(22)">
+            <input type="text" value="-" id="r2c3" readonly onclick="checkScore(23)">
+            <br>
+            <input type="text" value="-" id="r3c1" readonly onclick="checkScore(31)">
+            <input type="text" value="-" id="r3c2" readonly onclick="checkScore(32)">
+            <input type="text" value="-" id="r3c3" readonly onclick="checkScore(33)">
+        </div>
+        <br>
+        <div class="cont">
+            <label>Next player: </label>
+            <input class="next" type="text" value="x" id="next" readonly>
+        </div><br>
+        <div class="playAgain">
+            <label>Restart game: </label>
+            <button onclick="playAgain()">Restart</button>
+        </div>
+        <div class="help">
+            <label>Help: </label>
+            <button onclick="myHelp()">Press here</button>
+        </div>
+        <br>
+        <!-- <p id="winnertxt">Play to find the winner !</p> -->
+        <!-- </script> -->
+        <!-- other test stuff -->
+
+    </body>
+    
+</html>
